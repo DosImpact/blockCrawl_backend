@@ -2,7 +2,7 @@ import pt from "puppeteer";
 
 const crawler = async () => {
   try {
-    const brs = await pt.launch({ headless: true });
+    const brs = await pt.launch({ headless: true, args: ["--no-sandbox"] });
     const page = await brs.newPage();
     await page.goto(
       "https://search.naver.com/search.naver?where=nexearch&query=%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0"
@@ -17,6 +17,7 @@ const crawler = async () => {
     brs.close();
     return dustInfo;
   } catch (error) {
+    console.error(error);
     return "fail";
   }
 };

@@ -1,22 +1,32 @@
-FROM node:carbon
-MAINTAINER Doyoung ypd03008@gmail.com
- 
-#app 폴더 만들기 - NodeJS 어플리케이션 폴더
+FROM node:10.20.1-slim@sha256:79809f748c1de29269f1fffc212486a758412e4f0f0c79eaf99408245156a042
+
 RUN mkdir -p /app
-#winston 등을 사용할떄엔 log 폴더도 생성
- 
-#어플리케이션 폴더를 Workdir로 지정 - 서버가동용
 WORKDIR /app
- 
-#서버 파일 복사 ADD [어플리케이션파일 위치] [컨테이너내부의 어플리케이션 파일위치]
-#저는 Dockerfile과 서버파일이 같은위치에 있어서 ./입니다
 ADD ./ /app
- 
-#패키지파일들 받기
+
+# Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
+# Note: this installs the necessary libs to make the bundled version of Chromium that Puppeteer
+# installs, work.
+RUN  apt-get update \
+     && apt-get install -y wget gnupg ca-certificates \
+     && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+     && apt-get update \
+     # We install Chrome to get all the OS level dependencies, but Chrome itself
+     # is not actually used as it's packaged in the node puppeteer library.
+     # Alternatively, we could could include the entire dep list ourselves
+     # (https://github.com/puppeteer/puppeteer/blob/master/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix)
+     # but that seems too easy to get out of date.
+     && apt-get install -y google-chrome-stable \
+     && rm -rf /var/lib/apt/lists/* \
+     && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
+     && chmod +x /usr/sbin/wait-for-it.sh
+
 RUN npm install
- 
+RUN npm build
+
 #배포버젼으로 설정 - 이 설정으로 환경을 나눌 수 있습니다.
 ENV NODE_ENV=production
- 
-#서버실행
-CMD npm start
+
+CMD node build/server
+
