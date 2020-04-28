@@ -1,6 +1,6 @@
 import { GraphQLServer } from "graphql-yoga";
 import schema from "./scheme";
-import naver from "./naver";
+import naver from "./crwaling/naver";
 import cors from "cors";
 
 const PORT = process.env.PORT || 4000;
@@ -12,17 +12,17 @@ const server = new GraphQLServer({
 server.express.use(cors());
 
 server.express.get("/api", (req, res) => {
-  res.json({ data: "success" });
+  res.json({ result: "success" });
   res.end();
 });
 
 server.express.get("/api/start", async (req, res) => {
   try {
     const result = await naver();
-    res.json({ data: result });
+    res.json({ result: "success", data: result });
     res.end();
   } catch (error) {
-    res.json({ data: "SOMETHING ERROR" });
+    res.json({ result: "error" });
     res.end();
   }
 });
