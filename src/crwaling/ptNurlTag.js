@@ -10,7 +10,7 @@ export default async ({ urls, commonTag }) => {
   console.time("nmoive.js");
   console.log("start nmoive.js...");
   const result = new Array(urls.length);
-  const brs = await pt.launch({ headless: false, args: ["--no-sandbox"] });
+  const brs = await pt.launch({ headless: true, args: ["--no-sandbox"] });
 
   await Promise.all(
     urls.map(async (e, idx) => {
@@ -38,5 +38,5 @@ export default async ({ urls, commonTag }) => {
   console.log("Finished nmoive.js");
   await brs.close();
   console.timeEnd("nmoive.js");
-  return 0;
+  return result;
 };
