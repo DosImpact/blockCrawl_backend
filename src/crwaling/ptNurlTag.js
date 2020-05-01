@@ -7,8 +7,8 @@ import pt from "puppeteer";
  */
 
 export default async ({ urls, commonTag }) => {
-  console.time("nmoive.js");
-  console.log("start nmoive.js...");
+  console.time("ptNurlTag.js");
+  console.log("start ptNurlTag.js...");
   const result = new Array(urls.length);
   const brs = await pt.launch({ headless: true, args: ["--no-sandbox"] });
 
@@ -35,8 +35,8 @@ export default async ({ urls, commonTag }) => {
     })
   );
   console.log(result);
-  console.log("Finished nmoive.js");
+  console.log("Finished ptNurlTag.js");
   await brs.close();
-  console.timeEnd("nmoive.js");
+  console.timeEnd("ptNurlTag.js");
   return result;
 };
