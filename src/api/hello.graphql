@@ -1,4 +1,6 @@
 type Query {
   hello: String!
+  hello2: String!
+  hello3(id: Int): String!
   naverDust: String!
 }
