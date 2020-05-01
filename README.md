@@ -18,6 +18,7 @@ yarn add copy
 - 도커 nodemon 안되나 ? > 단순히 server.js 실행시키려면, babel cli 셋팅 해야함.
 - http://www.smartjava.org/content/using-puppeteer-in-docker-copy-2/ 튜토리얼
 - 퍼펫티어를 각 환경에서 돌리는건 쉽지 않은 문제다. 헤로꾸, AWS, 도커 각자 다 스티키한 설정들이 필요.
+- 이슈 1번으로 도커 빌드는 성공했는데. 퍼펫티어가 실행이 안된다.
 
 # yarn start
 
