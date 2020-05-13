@@ -38,3 +38,17 @@
 4. 이슈 트러블 슈팅 issuse
 
 ```
+
+# 백앤드 작업 진행
+
+- Prisma 클라이언트 만들기
+- 데이터 모델링 및 마이그레이션
+- User 인증방법 JWT 토큰
+- .env 설치
+- 서버 로깅 모듈 morgan 설치
+
+```
+prisma login
+prisma init
+
+```

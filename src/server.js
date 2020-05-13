@@ -1,3 +1,4 @@
+import "./env";
 import { GraphQLServer } from "graphql-yoga";
 import schema from "./scheme";
 import naver from "./crwaling/naver";
