@@ -13,4 +13,6 @@ type Post{
   comment: String!
 
   user:User! @relation(name:"PostsOfUser")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
