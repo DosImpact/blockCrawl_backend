@@ -18,7 +18,7 @@ const pturlCapture = async ({ url }) => {
   });
   const page = await brs.newPage();
   await page.setViewport({ width: 1920, height: 1080 });
-  await page.goto(url);
+  await page.goto(url, { waitUntil: "networkidle0" });
   const pageTitle = await page.title();
   const fileName = `${pageTitle}_${Date.now()}.pdf`;
   const fileURL = path.join(PUBLIC_DIR, fileName);

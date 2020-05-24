@@ -14,7 +14,7 @@ const pturlCapture = async ({ url, fullShot = false }) => {
 
   const brs = await pt.launch({ headless: true, args: ["--no-sandbox"] });
   const page = await brs.newPage();
-  await page.goto(url);
+  await page.goto(url, { waitUntil: "networkidle0" });
   const pageTitle = await page.title();
   const fileName = `${pageTitle}_${Date.now()}.png`;
   const fileURL = path.join(PUBLIC_DIR, fileName);
