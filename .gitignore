@@ -27,3 +27,4 @@ yarn-error.log*
 # change when production level
 prisma.yml
 /User Data
+/public

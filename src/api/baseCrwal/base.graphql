@@ -1,3 +1,4 @@
 type Query {
   NurlTag(tag: String!, urls: [String!]!): String!
+  urlTag(tag: String!, url: String!): String!
 }

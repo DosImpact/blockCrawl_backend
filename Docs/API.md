@@ -1,37 +1,14 @@
 # API Document
 
-# NurlTag
-
-- Usage
-
 ```js
-query{
-  NurlTag(tag:"thisistag",urls:["asdf","asdf"])
-}
+NurlTag(tag: String!, urls: [String!]!): String!
 
+주어진 모든 주소에서 동일한 tag들에 대한 textContent를 반환
 ```
 
-- scheme
-
 ```js
-
-type Query {
-  NurlTag(tag: String!, urls: [String!]!): String!
-}
+urlTag(tag: String!, url: String!): String!
 
 
-```
-
-- resolver
-
-```js
-export default {
-  Query: {
-    NurlTag: async (_, args) => {
-      const { tag, urls } = args;
-      console.log("data incoming", tag, urls);
-      return "success";
-    },
-  },
-};
+주어진 주소에서 동일한 tag들에 대한 textContent를 반환
 ```

@@ -1,13 +1,15 @@
-import ptNurlTag from "../../crwaling/ptNurlTag";
+import { ptNurlTag, pturlTag } from "../../crwaling/basic";
 
 export default {
   Query: {
     NurlTag: async (_, args) => {
       const { tag, urls } = args;
-      console.log("incomming Data", tag, urls);
-      console.log("data incoming", tag, urls);
       const res = await ptNurlTag({ commonTag: tag, urls });
-      console.log("res", res);
+      return JSON.stringify(res);
+    },
+    urlTag: async (_, args) => {
+      const { tag, url } = args;
+      const res = await pturlTag({ commonTag: tag, url });
       return JSON.stringify(res);
     },
   },
