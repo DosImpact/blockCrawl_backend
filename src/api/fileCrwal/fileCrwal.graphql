@@ -1,3 +1,4 @@
 type Query {
   urlCapture(url: String!, fullShot: Boolean): String!
+  urlPDF(url: String!): String!
 }

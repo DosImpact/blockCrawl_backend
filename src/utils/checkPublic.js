@@ -2,7 +2,6 @@
  * @param {None} Boolean
  */
 
-import "./Constant";
 import path from "path";
 import fs from "fs";
 

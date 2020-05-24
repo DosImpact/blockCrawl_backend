@@ -1,6 +1,7 @@
-import { pturlCapture } from "../../crwaling/image";
+import { pturlCapture, pturlPDF } from "../../crwaling/image";
 import checkPublicFile from "../../utils/checkPublic";
 import path from "path";
+import removeFile from "../../utils/removeFile";
 
 export default {
   Query: {
@@ -8,8 +9,25 @@ export default {
       try {
         checkPublicFile();
         const res = await pturlCapture({ url, fullShot });
-        return `${path.normalize(process.env.SERVER_URL) +
-          encodeURIComponent(res)}`;
+        setTimeout(() => {
+          removeFile(res);
+        }, 180000);
+        return `${res}`;
+      } catch (error) {
+        throw Error("ERROR: urlCapture fail");
+      }
+    },
+    urlPDF: async (_, { url }) => {
+      try {
+        checkPublicFile();
+        const res = await pturlPDF({ url });
+        console.log(res);
+        setTimeout(() => {
+          removeFile(res);
+        }, 180000);
+        return `${res}`;
+        // return `${path.normalize(process.env.SERVER_URL) +
+        //   encodeURIComponent(res)}`;
       } catch (error) {
         throw Error("ERROR: urlCapture fail");
       }
