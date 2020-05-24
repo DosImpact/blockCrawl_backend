@@ -1,5 +1,8 @@
 import pt from "puppeteer";
-
+/**
+ *
+ * @param {url,commonTag} getTextContent
+ */
 const basic = async ({ urls, commonTag }) => {
   const brs = await pt.launch({ headless: false });
   let result = null;

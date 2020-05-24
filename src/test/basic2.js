@@ -1,5 +1,10 @@
 import pt from "puppeteer";
 
+/**
+ *
+ * @param { urlMovieList, tagMovieTitle } movieTitleList
+ */
+
 const basic2 = async ({ urlMovieList, tagMovieTitle }) => {
   const brs = await pt.launch({ headless: false });
   const page = await brs.newPage();
