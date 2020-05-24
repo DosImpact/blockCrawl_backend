@@ -1,4 +1,8 @@
 import nmoive from "./nmoive";
+import basic from "./basic";
+import basic2 from "./basic2";
+import youtube from "./youtube";
+youtube({ urlMovieList, tagMovieTitle }); //#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt > a
 
 const urls = [
   "https://movie.naver.com/movie/bi/mi/basic.nhn?code=187321",
@@ -16,4 +20,8 @@ const urls = [
 const commonTag =
   "#content > div.article > div.mv_info_area > div.mv_info > h3 > a:nth-child(1)";
 
-nmoive({ urls, commonTag });
+const urlMovieList = "https://movie.naver.com/movie/running/current.nhn";
+const tagMovieTitle =
+  "#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt > a";
+// nmoive({ urls, commonTag });
+//basic({ urls, commonTag });
