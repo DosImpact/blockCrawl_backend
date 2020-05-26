@@ -5,7 +5,7 @@ import removeFile from "../../utils/removeFile";
 
 export default {
   Query: {
-    urlCapture: async (_, { url, fullShot }) => {
+    urlCapture: async (_, { url, fullShot = true }) => {
       try {
         checkPublicFile();
         const res = await pturlCapture({ url, fullShot });

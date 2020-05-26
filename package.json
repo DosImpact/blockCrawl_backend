@@ -10,7 +10,7 @@
     "postbuild": "npx copy src/api/**/*.graphql ./build/api",
     "deploy": "prisma deploy",
     "generate": "prisma generate",
-    "prisma": "yarn run deploy && yarn run generate"
+    "prisma": "npm run deploy && npm run generate"
   },
   "repository": {
     "type": "git",

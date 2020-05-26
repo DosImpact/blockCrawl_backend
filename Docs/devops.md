@@ -77,3 +77,13 @@ USER pptruser
 
 CMD ["google-chrome-unstable"]
 ````
+
+# 도커 이미지 만들기
+
+```
+node_modules
+build
+.dockerignore
+Dockerfile
+Dockerfile.prod
+```

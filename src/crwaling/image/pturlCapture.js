@@ -5,7 +5,7 @@ import path from "path";
  * @param {url,commonTag} textContent
  */
 
-const pturlCapture = async ({ url, fullShot = false }) => {
+const pturlCapture = async ({ url, fullShot = true }) => {
   console.time(__filename);
   console.log(`${__filename} is stared...`);
   if (!url) {
