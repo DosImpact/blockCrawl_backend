@@ -1,10 +1,10 @@
 # BlockCrawl/backend
 
-# START!
+# Install
 
 ```
 # yarn install
-- 모듈을 설치
+- 모듈을 설치합니다.
 
 # yarn start
 
@@ -18,6 +18,10 @@
 # yarn build
 
 - 서버를 빌드합니다.
+
+
+# docker build -t blockcrwalserver:0.0.1 .
+- 도커 이미지를 빌드합니다.
 ```
 
 # Process
