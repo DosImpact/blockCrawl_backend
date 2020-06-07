@@ -1,8 +1,6 @@
 import nmoive from "./nmoive";
 import basic from "./basic";
 import basic2 from "./basic2";
-import youtube from "./youtube";
-import youtubedl from "./youtubedl";
 
 const urls = [
   "https://movie.naver.com/movie/bi/mi/basic.nhn?code=187321",

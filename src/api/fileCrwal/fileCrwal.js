@@ -2,7 +2,7 @@ import { pturlCapture, pturlPDF } from "../../crwaling/image";
 import checkPublicFile from "../../utils/checkPublic";
 import removeFile from "../../utils/removeFile";
 
-const REMOVE_FILE_TIME = 7000;
+const REMOVE_FILE_TIME = 20000;
 
 export default {
   Query: {

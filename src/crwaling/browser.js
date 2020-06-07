@@ -5,10 +5,12 @@ import path from "path";
 let brs = null;
 let error = null;
 
+const HEAD_LESS = true;
+
 const init = async () => {
   try {
     brs = await pt.launch({
-      headless: false,
+      headless: HEAD_LESS,
       userDataDir: `${path.join(__dirname, "../../", "User Data")}`,
       args: [
         "--no-sandbox",
@@ -26,7 +28,7 @@ const reLaunch = async () => {
   try {
     if (brs) await brs.close();
     brs = await pt.launch({
-      headless: false,
+      headless: HEAD_LESS,
       args: [
         "--no-sandbox",
         "--window-size=1920,1080",
