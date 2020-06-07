@@ -1,30 +1,44 @@
 import pt from "puppeteer";
 import { PUBLIC_DIR } from "../../utils/checkPublic";
 import path from "path";
+import { brs, brsCheck } from "../browser";
+
 /**
  * @param {url,commonTag} textContent
  */
 
+const FILE_NAME = path.basename(__filename);
+let FILE_NAME_ID = null;
+
 const pturlCapture = async ({ url, fullShot = true }) => {
-  console.time(__filename);
-  console.log(`${__filename} is stared...`);
+  let fileName = null;
+  if (!brsCheck()) {
+    throw Error("Error: brs instance No found");
+  }
+
   if (!url) {
     throw Error("ERROR: url Is NULL");
   }
-
-  const brs = await pt.launch({ headless: true, args: ["--no-sandbox"] });
   const page = await brs.newPage();
-  await page.goto(url, { waitUntil: "networkidle0" });
-  const pageTitle = await page.title();
-  const fileName = `${pageTitle}_${Date.now()}.png`;
-  const fileURL = path.join(PUBLIC_DIR, fileName);
-  await page.screenshot({
-    path: fileURL,
-    fullPage: fullShot,
-  });
+  await page.setViewport({ width: 1920, height: 1080 });
+  try {
+    await page.goto(url, { waitUntil: "networkidle0" });
+    const pageTitle = await page.title();
+    fileName = `${pageTitle}_${Date.now()}.png`;
+    const fileURL = path.join(PUBLIC_DIR, fileName);
+    console.log(fileName, "filename", fileURL, "fileURL");
 
-  console.log(`${__filename} is END✅`);
-  console.timeEnd(__filename);
+    await page.screenshot({
+      path: fileURL,
+      fullPage: fullShot,
+    });
+  } catch (error) {
+    throw Error(`ERROR: screenshot Fail${error}`);
+  } finally {
+    await page.close();
+  }
+
+  console.log(`Finished ${FILE_NAME} ✔`, fileName);
   return fileName;
 };
 export default pturlCapture;

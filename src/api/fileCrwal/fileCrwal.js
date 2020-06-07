@@ -1,36 +1,36 @@
 import { pturlCapture, pturlPDF } from "../../crwaling/image";
 import checkPublicFile from "../../utils/checkPublic";
-import path from "path";
 import removeFile from "../../utils/removeFile";
+
+const REMOVE_FILE_TIME = 7000;
 
 export default {
   Query: {
     urlCapture: async (_, { url, fullShot = true }) => {
+      let res = null;
+      checkPublicFile();
       try {
-        checkPublicFile();
-        const res = await pturlCapture({ url, fullShot });
-        setTimeout(() => {
-          removeFile(res);
-        }, 180000);
-        return `${res}`;
+        res = await pturlCapture({ url, fullShot });
       } catch (error) {
-        throw Error("ERROR: urlCapture fail");
+        throw Error(`ERROR: urlCapture fail${error}`);
       }
+      setTimeout(() => {
+        removeFile(res);
+      }, REMOVE_FILE_TIME);
+      return `${res}`;
     },
     urlPDF: async (_, { url }) => {
+      let res = null;
+      checkPublicFile();
       try {
-        checkPublicFile();
-        const res = await pturlPDF({ url });
-        console.log(res);
-        setTimeout(() => {
-          removeFile(res);
-        }, 180000);
-        return `${res}`;
-        // return `${path.normalize(process.env.SERVER_URL) +
-        //   encodeURIComponent(res)}`;
+        res = await pturlPDF({ url });
       } catch (error) {
-        throw Error("ERROR: urlCapture fail");
+        throw Error(`ERROR: urlCapture fail ${error}`);
       }
+      setTimeout(() => {
+        removeFile(res);
+      }, REMOVE_FILE_TIME);
+      return `${res}`;
     },
   },
 };

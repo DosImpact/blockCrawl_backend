@@ -11,8 +11,9 @@ const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 const checkPublicFile = () => {
   fs.readdir(PUBLIC_DIR, (e) => {
     if (e) {
+      console.log("making public dir...");
       fs.mkdirSync(PUBLIC_DIR);
-      return false;
+      return true;
     }
   });
   return true;

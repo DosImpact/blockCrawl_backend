@@ -1,16 +1,18 @@
 import pt from "puppeteer";
 import path from "path";
+import { brs, brsCheck } from "../browser";
 /**
  * @param {url,commonTag} textContent
  */
 
 const FILE_NAME = path.basename(__filename);
+let FILE_NAME_ID = null;
 
 export default async ({ url, commonTag }) => {
   let result = null;
-  console.time(FILE_NAME);
-  console.log(`${FILE_NAME} is started...`);
-  const brs = await pt.launch({ headless: true, args: ["--no-sandbox"] });
+  if (!brsCheck()) {
+    throw Error("Error: brs instance No found");
+  }
   const page = await brs.newPage();
   await page.goto(url);
 
@@ -31,8 +33,6 @@ export default async ({ url, commonTag }) => {
     await page.close();
   }
 
-  console.log(`${FILE_NAME} :${result} is END ✅ `);
-  await brs.close();
-  console.timeEnd(FILE_NAME);
+  console.log(`Finished ${FILE_NAME} ✔`, result);
   return result;
 };

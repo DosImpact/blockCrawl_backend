@@ -3,7 +3,6 @@ import basic from "./basic";
 import basic2 from "./basic2";
 import youtube from "./youtube";
 import youtubedl from "./youtubedl";
-youtubedl(); //#content > div.article > div:nth-child(1) > div.lst_wrap > ul > li:nth-child(1) > dl > dt > a
 
 const urls = [
   "https://movie.naver.com/movie/bi/mi/basic.nhn?code=187321",
