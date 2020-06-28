@@ -5,16 +5,14 @@ import path from "path";
 let brs = null;
 let error = null;
 
-const HEAD_LESS = true;
-
 const init = async () => {
   try {
     brs = await pt.launch({
-      headless: HEAD_LESS,
+      headless: process.env.HEAD_LESS ? false : true,
       userDataDir: `${path.join(__dirname, "../../", "User Data")}`,
       args: [
         "--no-sandbox",
-        "--window-size=1920,1080",
+        `--window-size=${process.env.BRS_WIDTH},${process.env.BRS_HEIGHT}`,
         "--disable-notifications",
       ],
     });

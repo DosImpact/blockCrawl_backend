@@ -20,25 +20,24 @@ const pturlCapture = async ({ url, fullShot = true }) => {
     throw Error("ERROR: url Is NULL");
   }
   const page = await brs.newPage();
-  await page.setViewport({ width: 1920, height: 1080 });
+  // await page.setViewport({ width: 1920, height: 1080 });
   try {
-    await page.goto(url, { waitUntil: "networkidle0" });
+    await page.goto(url, { waitUntil: "load" });
     const pageTitle = await page.title();
     fileName = `${pageTitle}_${Date.now()}.png`;
     const fileURL = path.join(PUBLIC_DIR, fileName);
-    console.log(fileName, "filename", fileURL, "fileURL");
-
+    console.log("saved file url", fileURL);
     await page.screenshot({
       path: fileURL,
       fullPage: fullShot,
     });
   } catch (error) {
-    throw Error(`ERROR: screenshot Fail${error}`);
+    throw Error(`❌ ERROR: screenshot Fail${error}`);
   } finally {
     await page.close();
   }
 
-  console.log(`Finished ${FILE_NAME} ✔`, fileName);
+  console.log(`✔ Finished ${FILE_NAME} `, fileName);
   return fileName;
 };
 export default pturlCapture;
