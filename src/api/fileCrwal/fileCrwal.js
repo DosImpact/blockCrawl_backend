@@ -6,7 +6,7 @@ const REMOVE_FILE_TIME = 30000;
 
 export default {
   Query: {
-    urlCapture: async (_, { url, fullShot = true }) => {
+    urlCapture: async (_, { url, fullShot = false }) => {
       let res = null;
       checkPublicFile();
       try {
