@@ -7,7 +7,7 @@
     "test": "nodemon --exec babel-node src/test/testMode.js",
     "start": "nodemon --exec babel-node src/server.js",
     "build": "babel src -d build",
-    "postbuild": "npx copy src/api/**/*.graphql build/api",
+    "postbuild": "npx copy src/api/**/*.graphql ./build/api",
     "deploy": "prisma deploy",
     "generate": "prisma generate",
     "prisma": "npm run deploy && npm run generate"
