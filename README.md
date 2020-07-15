@@ -29,3 +29,11 @@
 - [ ] 스텔라 플러그인
 - [ ] 몽고 DB
 - [ ] graphql - express 탈피
+
+# follow = git flow
+
+- deploy : 베포용 branch
+- dev : 개발용 branch
+- feature : 기능 추가용 branch
+
+![./img/git-flow_overall_graph.png](./img/git-flow_overall_graph.png)
