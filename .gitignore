@@ -27,3 +27,5 @@ yarn-error.log*
 prisma.yml
 /User Data
 /public
+yarn.lock
+package-lock.json
