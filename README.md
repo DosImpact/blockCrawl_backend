@@ -26,13 +26,11 @@
 
 # TODO LIST
 
-- feature
+- [x] 스텔라 플러그인
+- [x] 몽고 DB
+- [x] graphql - express 탈피
 
-- [ ] 스텔라 플러그인
-- [ ] 몽고 DB
-- [ ] graphql - express 탈피
-
-# follow = git flow
+# follow this git flow
 
 - deploy : 베포용 branch
 - dev : 개발용 branch
