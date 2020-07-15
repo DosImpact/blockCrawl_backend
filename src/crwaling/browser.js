@@ -1,6 +1,9 @@
 // 기본적인 브라우져 런치
-import pt from "puppeteer";
+// import pt from "puppeteer";
 import path from "path";
+import pt from "puppeteer-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
+pt.use(StealthPlugin());
 
 let brs = null;
 let error = null;
