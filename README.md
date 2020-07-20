@@ -2,7 +2,7 @@
 
 # Install
 
-```
+```js
 # yarn install
 - 모듈을 설치합니다.
 
@@ -29,9 +29,15 @@
 - [x] 스텔라 플러그인
 - [x] 몽고 DB
 - [x] graphql - express 탈피
-- [ ] node.js with redux
+- [x] node.js with redux
 
-# follow this git flow
+- [ ] crawlling api connect to express
+- [ ] csv IO utils
+- [ ] xlsx IO utils
+
+- [ ] crawling function addon :
+
+# This repo follows below git flow diagram
 
 - deploy : 베포용 branch
 - dev : 개발용 branch

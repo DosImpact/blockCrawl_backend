@@ -39,7 +39,7 @@ const reLaunch = async () => {
     console.log("✔ puppeteer is reLuanched ");
     error = null;
   } catch (e) {
-    console.error("Error: brs reLuanch ");
+    console.error("Error: brs reLuanch Fail ");
     error = e;
   }
 };
