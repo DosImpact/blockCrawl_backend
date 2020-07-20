@@ -11,7 +11,9 @@ import { brs, error, init, reLaunch } from "./crwaling/browser";
 
 import path from "path";
 /*
- ========================mongo DB
+ ========================
+    mongo DB
+ ========================
  */
 
 const connect = mongoose
@@ -25,7 +27,9 @@ const connect = mongoose
   .then(() => console.log("✔ MongoDB connected..."))
   .catch((e) => console.error(`❌ MongoDB disconnected`, e));
 /*
- ========================Server setting &&  MiddleWare
+ ========================
+    Server setting &&  MiddleWare
+ ========================
  */
 
 const PORT = process.env.PORT || 4000;
@@ -42,6 +46,7 @@ server.express.use(cookieParser());
 
 server.express.use("/api/test", require("./routes/test"));
 server.express.use("/api/users", require("./routes/users"));
+
 server.express.use((req, res, next) => {
   res.status(404).send("NOT FOUND 😡");
 });
