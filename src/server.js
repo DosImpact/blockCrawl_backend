@@ -1,4 +1,5 @@
 import "./env";
+import "./redux/store";
 import { GraphQLServer } from "graphql-yoga";
 import schema from "./scheme";
 import cors from "cors";

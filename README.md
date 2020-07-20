@@ -29,6 +29,7 @@
 - [x] 스텔라 플러그인
 - [x] 몽고 DB
 - [x] graphql - express 탈피
+- [ ] node.js with redux
 
 # follow this git flow
 
