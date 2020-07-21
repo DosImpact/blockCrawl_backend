@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 import express from "express";
 import mongoose from "mongoose";
 import helmet from "helmet";
+import morgan from "morgan";
 
 import { brs, error, init, reLaunch } from "./crwaling/browser";
 
@@ -40,7 +41,7 @@ const server = new GraphQLServer({
   schema,
   context: ({ request }) => ({ request, brs, error, init, reLaunch }),
 });
-
+server.express.use(morgan("dev"));
 server.express.use(helmet());
 server.express.use(cors());
 server.express.use(bodyParser.json());
