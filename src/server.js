@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import express from "express";
 import mongoose from "mongoose";
+import helmet from "helmet";
 
 import { brs, error, init, reLaunch } from "./crwaling/browser";
 
@@ -40,23 +41,25 @@ const server = new GraphQLServer({
   context: ({ request }) => ({ request, brs, error, init, reLaunch }),
 });
 
+server.express.use(helmet());
 server.express.use(cors());
 server.express.use(bodyParser.json());
 server.express.use(bodyParser.urlencoded({ extended: true }));
 server.express.use(cookieParser());
+server.express.use(express.static("public"));
+
+//==========================================
+//        REST API
+//==========================================
 
 server.express.use("/api/test", require("./routes/test"));
 server.express.use("/api/users", require("./routes/users"));
 
-server.express.use((req, res, next) => {
-  res.status(404).send("NOT FOUND 😡");
-});
 server.express.use((err, req, res, next) => {
   console.error("❌ Server Error", err);
   res.end("❌ Server Error", err);
 });
 
-server.express.use(express.static("public"));
 server.express.get("/download/*", (req, res) => {
   console.log("try download serve...");
   if (req) {
