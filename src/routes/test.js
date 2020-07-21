@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   console.log("HI");
-  res.end("hi");
+  res.json({ mesg: "hi", userList: ["doyung", "tjsdh", "wlsgh"] });
 });
 
 router.get("/error", (req, res) => {

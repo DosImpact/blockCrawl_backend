@@ -55,6 +55,7 @@ server.express.use(express.static("public"));
 
 server.express.use("/api/test", require("./routes/test"));
 server.express.use("/api/users", require("./routes/users"));
+server.express.use("/api/basecrawl", require("./routes/baseCrawl"));
 
 server.express.use((err, req, res, next) => {
   console.error("❌ Server Error", err);

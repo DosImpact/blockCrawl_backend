@@ -2,7 +2,7 @@ import { pturlCapture, pturlPDF } from "../../crwaling/image";
 import checkPublicFile from "../../utils/checkPublic";
 import removeFile from "../../utils/removeFile";
 
-const REMOVE_FILE_TIME = 30000;
+const REMOVE_FILE_TIME = process.env.REMOVE_FILE_TIME || 30000;
 
 export default {
   Query: {
@@ -16,7 +16,7 @@ export default {
       }
       setTimeout(() => {
         removeFile(res);
-      }, process.env.REMOVE_FILE_TIME);
+      }, REMOVE_FILE_TIME);
       return `${res}`;
     },
     urlPDF: async (_, { url }) => {

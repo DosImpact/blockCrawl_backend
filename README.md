@@ -31,12 +31,12 @@
 - [x] graphql - express 탈피
 - [x] node.js with redux
 
-- [x] middleware helmet
-- [ ] crawlling api connect to express
+- [x] middleware helmet,morgan
+- [x] crawlling api connect to express
 - [ ] csv IO utils
 - [ ] xlsx IO utils
 
-- [ ] crawling function addon :
+- [ ] crawling function addon
 
 # This repo follows below git flow diagram
 
