@@ -1,5 +1,5 @@
 //==========================
-// read csv and get movie score and save CSV : error fixed
+// read csv and get movie score and save CSV : error fixed with async
 //==========================
 
 import fs, { promises } from "fs";
