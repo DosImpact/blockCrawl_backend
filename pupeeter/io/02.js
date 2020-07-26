@@ -1,5 +1,5 @@
 //==========================
-// input multiple lines
+// input multiple lines - example
 //==========================
 
 const readline = require("readline");
