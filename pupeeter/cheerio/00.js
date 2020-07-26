@@ -28,9 +28,10 @@ rows.forEach(async (e, idx) => {
   } catch (error) {
     console.error(error);
   }
-  console.log(result);
   try {
     const resultFile = stringify(result);
     fs.writeFileSync("pupeeter/data/moviesListScore.csv", resultFile);
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 });
