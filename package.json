@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon --exec babel-node src/test/testMode.js",
-    "start": "nodemon --exec babel-node src/server.js",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "start": "node build/server.js",
     "build": "babel src -d build",
     "postbuild": "npx copy src/api/**/*.graphql ./build/api",
     "crawltest": "nodemon --exec babel-node pupeeter/main.js"
