@@ -1,4 +1,4 @@
-import { ptNurlTag, pturlTag } from "../crwaling/basic";
+import { ptNurlTag, pturlTag, pturlNTag } from "../crwaling/basic";
 import express from "express";
 
 const router = express.Router();
@@ -23,6 +23,17 @@ router.post("/urlTag", async (req, res) => {
     throw Error("tag or url need");
   }
   const result = await pturlTag({ commonTag: tag, url });
+  return res.status(200).json({ result, success: true });
+});
+
+router.post("/urlNTag", async (req, res) => {
+  const { tags, url } = req.body;
+  // console.log(tags, url);
+  if (tags === undefined || url === undefined) {
+    // return new Promise.reject(new Error("tags or url need"));
+    throw Error("tag or url need");
+  }
+  const result = await pturlNTag({ commonTags: tags, url });
   return res.status(200).json({ result, success: true });
 });
 
