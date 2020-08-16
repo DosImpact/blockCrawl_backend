@@ -33,7 +33,6 @@ export default async ({ url, commonTags }) => {
   } catch (error) {
     console.error(error);
   } finally {
-    await page.waitFor(5000);
     await page.close();
   }
   console.log(`Finished ${FILE_NAME} ✔`, result);
