@@ -11,7 +11,7 @@ let error = null;
 const init = async () => {
   try {
     brs = await pt.launch({
-      headless: process.env.HEAD_LESS ? false : true,
+      headless: process.env.HEAD_LESS === "false" ? false : true,
       userDataDir: `${path.join(__dirname, "../../", "User Data")}`,
       args: [
         "--no-sandbox",
