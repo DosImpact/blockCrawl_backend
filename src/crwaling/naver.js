@@ -11,7 +11,7 @@ const crawler = async () => {
       const dustEl = document.querySelector(
         `#main_pack > div.sc.cs_weather._weather > div:nth-child(2) > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.sub_info > div > dl > dd:nth-child(2) > span.num`
       );
-      return dustEl.textContent.trim();
+      return dustEl.innerText.trim();
     });
     page.close();
     brs.close();

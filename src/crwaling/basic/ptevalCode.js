@@ -75,7 +75,7 @@ export default async ({ code }) => {
       ({ commonTag }) => {
         const tagNode = document.querySelector(commonTag);
         if (tagNode) {
-          return tagNode.textContent;
+          return tagNode.innerText;
         }
       },
       { commonTag }

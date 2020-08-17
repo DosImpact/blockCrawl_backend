@@ -23,7 +23,7 @@ export default async ({ url, commonTags }) => {
         for (let i = 0; i < commonTags.length; i++) {
           const tagNode = document.querySelector(commonTags[i]);
           if (tagNode) {
-            result[i] = tagNode.textContent.trim();
+            result[i] = tagNode.innerText.trim();
           }
         }
         return result;
