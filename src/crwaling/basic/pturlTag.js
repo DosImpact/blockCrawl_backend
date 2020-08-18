@@ -21,7 +21,7 @@ export default async ({ url, commonTag }) => {
       ({ commonTag }) => {
         const tagNode = document.querySelector(commonTag);
         if (tagNode) {
-          return tagNode.textContent;
+          return tagNode.innerText;
         }
       },
       { commonTag }

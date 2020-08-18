@@ -22,7 +22,7 @@ export default async ({ urls, commonTag }) => {
           ({ commonTag }) => {
             const score = document.querySelector(commonTag);
             if (score) {
-              return score.textContent;
+              return score.innerText;
             }
           },
           { commonTag }

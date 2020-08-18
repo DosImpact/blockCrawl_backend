@@ -22,14 +22,14 @@ const pturlCapture = async ({ url, fullShot = true }) => {
   const page = await brs.newPage();
   // await page.setViewport({ width: 1920, height: 1080 });
   try {
-    await page.goto(url, { waitUntil: "load" });
+    await page.goto(url, { waitUntil: "networkidle2" });
     const pageTitle = await page.title();
     fileName = `${pageTitle}_${Date.now()}.png`;
     const fileURL = path.join(PUBLIC_DIR, fileName);
     console.log("saved file url", fileURL);
     await page.screenshot({
       path: fileURL,
-      fullPage: fullShot,
+      fullPage: true,
     });
   } catch (error) {
     throw Error(`❌ ERROR: screenshot Fail${error}`);

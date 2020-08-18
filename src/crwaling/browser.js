@@ -1,6 +1,9 @@
 // 기본적인 브라우져 런치
-import pt from "puppeteer";
+// import pt from "puppeteer";
 import path from "path";
+import pt from "puppeteer-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
+pt.use(StealthPlugin());
 
 let brs = null;
 let error = null;
@@ -8,7 +11,7 @@ let error = null;
 const init = async () => {
   try {
     brs = await pt.launch({
-      headless: process.env.HEAD_LESS ? false : true,
+      headless: process.env.HEAD_LESS === "false" ? false : true,
       userDataDir: `${path.join(__dirname, "../../", "User Data")}`,
       args: [
         "--no-sandbox",
@@ -36,7 +39,7 @@ const reLaunch = async () => {
     console.log("✔ puppeteer is reLuanched ");
     error = null;
   } catch (e) {
-    console.error("Error: brs reLuanch ");
+    console.error("Error: brs reLuanch Fail ");
     error = e;
   }
 };
