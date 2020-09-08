@@ -30,7 +30,20 @@ export default async ({ commonTags, url, tagsImgs }) => {
     throw Error("Error: brs instance No found");
   }
   const page = await brs.newPage();
-  await page.goto(url);
+  await page.goto(url, { waitUntil: "networkidle2" });
+  const pageH = await page.evaluate(() => {
+    return document.body.scrollHeight;
+  });
+  console.log("pageH", pageH);
+  for (let i = 0; i <= Number(pageH / 1000); i++) {
+    await page.evaluate(
+      ({ i }) => {
+        window.scrollTo(0, i * 1000);
+      },
+      { i }
+    );
+    await page.waitFor(300);
+  }
 
   try {
     text_result = await page.evaluate(
@@ -53,7 +66,10 @@ export default async ({ commonTags, url, tagsImgs }) => {
         for (let i = 0; i < tagsImgs.length; i++) {
           const tagNode = document.querySelector(tagsImgs[i]);
           if (tagNode) {
-            result[i] = tagNode.querySelectorAll("img");
+            result[i] = Array.from(tagNode.querySelectorAll("img")).map(
+              (tag) => tag?.src
+            );
+            // result[i] = tagNode.querySelectorAll("img");
           }
         }
         return result;
@@ -68,6 +84,7 @@ export default async ({ commonTags, url, tagsImgs }) => {
   }
 
   result.text_result = text_result;
-  console.log(`Finished ${FILE_NAME} ✔`, result);
+  result.tagsImgs_result = tagsImgs_result;
+  console.log(`Finished ${FILE_NAME} ✔`);
   return result;
 };
