@@ -21,7 +21,7 @@ import path from "path";
 
 const connect = mongoose
   .connect(process.env.DB_URI, {
-    dbName: "blockcrawl",
+    dbName: "dosdb",
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -57,6 +57,7 @@ server.express.use("/api/test", require("./routes/test"));
 server.express.use("/api/users", require("./routes/users"));
 server.express.use("/api/basecrawl", require("./routes/baseCrawl"));
 server.express.use("/api/filecreate", require("./routes/filecreate"));
+server.express.use("/api/testmongo", require("./routes/testmongo"));
 
 server.express.use((err, req, res, next) => {
   console.error("❌ Server Error", err);

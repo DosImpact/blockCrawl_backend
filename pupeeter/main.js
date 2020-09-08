@@ -1,22 +1,18 @@
-// import "./example2";
-// import "./csv/01";
-// import "./csv/02";
-// import "./io/00";
-// import "./io/01";
-// import "./io/02";
+import path from "path";
+import puppeteer from "puppeteer";
+import cheerio from "cheerio";
+import axios from "axios";
 
-// import "./cheerio/00";
-// import "./cheerio/01";
-
-// import { pturlNTag } from "../src/crwaling/basic/index";
-
-// const testBed = async () => {
-//   pturlNTag({
-//     url: "https://movie.naver.com/movie/bi/mi/basic.nhn?code=134824",
-//     commonTags: [
-//       "#content > div.article > div.mv_info_area > div.mv_info > h3 > a:nth-child(1)",
-//     ],
-//   });
-// };
-
-// testBed();
+const main = async () => {
+  const res = await axios.get(
+    "https://map.naver.com/v5/search/%EC%B9%B4%ED%8E%98?c=14153046.4175012,4499915.7825856,18,0,0,0,dh"
+  );
+  if (res.status !== 200) {
+    return;
+  }
+  console.log(res.data);
+  const $ = cheerio.load(res.data);
+  const list = $("#_pcmap_list_scroll_container");
+  console.log(list);
+};
+main();
