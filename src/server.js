@@ -13,14 +13,6 @@ import morgan from "morgan";
 import { brs, error, init, reLaunch } from "./crwaling/browser";
 
 import path from "path";
-import {
-  saveWithNewFile,
-  saveWithImageURL,
-} from "./crwaling/saveFile/saveTocsv";
-// saveWithNewFile();
-saveWithImageURL(
-  "https://img.alicdn.com/imgextra/i4/333626664/O1CN01vqcb5w1z69xkigdZI_!!333626664.jpg"
-);
 
 /*
  ========================
@@ -65,6 +57,7 @@ server.express.use(express.static("public"));
 server.express.use("/api/test", require("./routes/test"));
 server.express.use("/api/users", require("./routes/users"));
 server.express.use("/api/basecrawl", require("./routes/baseCrawl"));
+server.express.use("/api/basecrawlsaved", require("./routes/baseCrawlSaved"));
 server.express.use("/api/filecreate", require("./routes/filecreate"));
 server.express.use("/api/testmongo", require("./routes/testmongo"));
 

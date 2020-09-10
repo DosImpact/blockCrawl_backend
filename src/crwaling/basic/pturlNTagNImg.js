@@ -34,7 +34,7 @@ export default async ({ commonTags, url, tagsImgs }) => {
   const pageH = await page.evaluate(() => {
     return document.body.scrollHeight;
   });
-  console.log("pageH", pageH);
+  // console.log("pageH", pageH);
   for (let i = 0; i <= Number(pageH / 1000); i++) {
     await page.evaluate(
       ({ i }) => {
@@ -76,7 +76,7 @@ export default async ({ commonTags, url, tagsImgs }) => {
       },
       { tagsImgs }
     );
-    console.log("tagsImgs_result", tagsImgs_result);
+    // console.log("tagsImgs_result", tagsImgs_result);
   } catch (error) {
     throw Error(error);
   } finally {
@@ -85,6 +85,6 @@ export default async ({ commonTags, url, tagsImgs }) => {
 
   result.text_result = text_result;
   result.tagsImgs_result = tagsImgs_result;
-  console.log(`Finished ${FILE_NAME} ✔`);
+  console.log(`✔ Finished ${FILE_NAME}`);
   return result;
 };
