@@ -13,6 +13,15 @@ import morgan from "morgan";
 import { brs, error, init, reLaunch } from "./crwaling/browser";
 
 import path from "path";
+import {
+  saveWithNewFile,
+  saveWithImageURL,
+} from "./crwaling/saveFile/saveTocsv";
+// saveWithNewFile();
+saveWithImageURL(
+  "https://img.alicdn.com/imgextra/i4/333626664/O1CN01vqcb5w1z69xkigdZI_!!333626664.jpg"
+);
+
 /*
  ========================
     mongo DB
