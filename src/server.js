@@ -58,6 +58,7 @@ server.express.use("/api/test", require("./routes/test"));
 server.express.use("/api/users", require("./routes/users"));
 server.express.use("/api/basecrawl", require("./routes/baseCrawl"));
 server.express.use("/api/basecrawlsaved", require("./routes/baseCrawlSaved"));
+server.express.use("/api/crawl/taobao", require("./routes/taobao/shopList"));
 server.express.use("/api/filecreate", require("./routes/filecreate"));
 server.express.use("/api/testmongo", require("./routes/testmongo"));
 

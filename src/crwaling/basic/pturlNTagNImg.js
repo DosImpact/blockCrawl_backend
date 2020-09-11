@@ -42,7 +42,7 @@ export default async ({ commonTags, url, tagsImgs }) => {
       },
       { i }
     );
-    await page.waitFor(300);
+    await page.waitFor(200);
   }
 
   try {

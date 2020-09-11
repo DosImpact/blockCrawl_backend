@@ -1,6 +1,29 @@
-# BlockCrwal
+# Crawlling 아카이브
 
-# 교육용 블록코딩을 활용한 웹자동화 제작 플렛폼
+- Example - taobao
+
+```js
+{
+  "url": "https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-17136297531.10.5d5f3ae4qm5s0x&id=601988445577",
+    "tagsName":[
+        "상품명",
+        "가격",
+        "사이즈",
+        "상세설명"
+    ],
+    "tags": [
+        "#J_Title > h3",
+        "#J_StrPrice > em.tb-rmb-num",
+        "#J_isku > div > dl.J_Prop.J_TMySizeProp.tb-prop.tb-clear.J_Prop_measurement > dd > ul",
+        "#description"
+    ],
+    "tagsImgs": [
+        "#detail > div.tb-detail-bd.tb-clear > div.tb-summary.tb-clear > div > div.tb-item-info-l > div.tb-gallery > div",
+        "#J_UlThumb",
+        "#J_DivItemDesc"
+    ]
+}
+```
 
 # 설치 및 실행
 

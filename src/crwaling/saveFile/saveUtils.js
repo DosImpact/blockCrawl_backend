@@ -13,6 +13,21 @@ with existed file
 
 */
 
+export const mergeCSVFile = async () => {};
+
+export const saveToCSVNamed = async (headerList, contentList, name) => {
+  contentList.splice(0, 0, headerList);
+  const str = stringify(contentList);
+  // await checkFolder(name);
+  fs.writeFile(`output/${name}.csv`, str, (e) => {
+    if (e) {
+      return false;
+    }
+    console.log("✔ save CSV File", name);
+  });
+  return true;
+};
+
 export const saveToCSV = async (headerList, contentList) => {
   const _headerList = ["1", "2", "3"];
   const _contentList = [
@@ -40,6 +55,21 @@ export const makeNewFolder = async () => {
       if (e) {
         fs.mkdir(`output/${dirName}`, () => {
           console.log(`✔ 폴더 생성 /output/${dirName} `);
+          return dirName;
+        });
+      }
+    });
+  };
+  const resultFileName = setStorage();
+  return resultFileName;
+};
+
+export const checkDefaultFolder = async () => {
+  const setStorage = async () => {
+    await fs.readFile(`output`, (e) => {
+      if (e) {
+        fs.mkdir(`output`, () => {
+          console.log(`✔ 폴더 생성 /output `);
           return dirName;
         });
       }
