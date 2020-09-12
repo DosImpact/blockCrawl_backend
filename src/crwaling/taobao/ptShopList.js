@@ -6,9 +6,9 @@ const FILE_NAME = path.basename(__filename);
 let FILE_NAME_ID = null;
 
 export default async ({ url, itemtag }) => {
-  url =
-    "https://designerclub.taobao.com/category-687648887.htm?spm=a1z10.5-c-s.w4002-17136297524.92.1d73f85cEVQ0UW&_ksTS=1599810800385_212&callback=jsonp213&mid=w-17136297524-0&wid=17136297524&path=%2Fcategory-687648887.htm&search=y&catName=NEW&catId=687648887&pageNo=1#anchor";
-  itemtag = "a.item-name.J_TGoldData";
+  // url =
+  //   "https://designerclub.taobao.com/category-687648887.htm?spm=a1z10.5-c-s.w4002-17136297524.92.1d73f85cEVQ0UW&_ksTS=1599810800385_212&callback=jsonp213&mid=w-17136297524-0&wid=17136297524&path=%2Fcategory-687648887.htm&search=y&catName=NEW&catId=687648887&pageNo=1#anchor";
+  // itemtag = "a.item-name.J_TGoldData";
   let result = {
     url,
     itemtag,
@@ -37,7 +37,7 @@ export default async ({ url, itemtag }) => {
       },
       { itemtag }
     );
-    console.log(itemtagResult);
+    // console.log(itemtagResult);
   } catch (error) {
     throw Error(error);
   } finally {
