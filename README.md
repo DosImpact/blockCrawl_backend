@@ -1,29 +1,6 @@
 # Crawlling 아카이브
 
-- Example - taobao
-
-```js
-{
-  "url": "https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-17136297531.10.5d5f3ae4qm5s0x&id=601988445577",
-    "tagsName":[
-        "상품명",
-        "가격",
-        "사이즈",
-        "상세설명"
-    ],
-    "tags": [
-        "#J_Title > h3",
-        "#J_StrPrice > em.tb-rmb-num",
-        "#J_isku > div > dl.J_Prop.J_TMySizeProp.tb-prop.tb-clear.J_Prop_measurement > dd > ul",
-        "#description"
-    ],
-    "tagsImgs": [
-        "#detail > div.tb-detail-bd.tb-clear > div.tb-summary.tb-clear > div > div.tb-item-info-l > div.tb-gallery > div",
-        "#J_UlThumb",
-        "#J_DivItemDesc"
-    ]
-}
-```
+# 교육용 블록코딩을 활용한 웹자동화 제작 플렛폼
 
 # 설치 및 실행
 
@@ -188,7 +165,8 @@ docker run --name bc_front -itd -p 80:3000 ehdudtkatka/bc_front:0.4
 
 ```
 docker run --name bc_front -itd -p 80:3000 ehdudtkatka/bc_front:0.4
-docker attach -it blockcrawl_front_server bash
+docker logs bc_front
+docker exec -it bc_front /bin/bash
 ```
 
 # ServerSide Docker Devops - DevServer Container
@@ -253,7 +231,8 @@ docker run --name bc_back -itd -p 4000:4000 ehdudtkatka/bc_back:0.4
 
 ```
 docker run --name bc_back -itd -p 4000:4000 ehdudtkatka/bc_back:0.4
-docker attach -it bc_back bash
+docker exec -it bc_back /bin/bash
+pm2 monit
 ```
 
 # 활용 기술
